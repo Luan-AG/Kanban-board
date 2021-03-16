@@ -8,7 +8,7 @@ html {
 :root {
   --column-1: #a1a1a1;
   --column-2: #3d93da;
-  --column-3: #b7b948;
+  --column-3: #da8910;
   --column-4: #48b948;
 }
 
@@ -89,7 +89,7 @@ ul {
 /* Custom Scrollbar */
 .custom-scroll {
   overflow-y: auto;
-  max-height: 75vh;
+  max-height: 50vh;
 }
 
 .custom-scroll::-webkit-scrollbar-track {
@@ -131,13 +131,25 @@ ul {
 
 .drag-item {
   margin: 10px;
-  padding: 10px;
+  padding: 10px ;
   height: fit-content;
   background-color: rgba(0, 0, 0, 0.3);
   color: white;
   border-radius: 10px;
   line-height: 1.5rem;
   letter-spacing: 1px;
+  cursor: grab;
+  display: flex;
+  
+  align-items: center;
+  justify-content: space-between;
+  
+}
+
+.bin-icon, .edit-icon {
+  height: 15px;
+  margin-left: 10px;
+  justify-self: center;
   cursor: pointer;
 }
 
@@ -147,7 +159,6 @@ ul {
   color: black;
 }
 
-/* Add Button Group */
 .add-btn-group {
   display: flex;
   justify-content: space-between;
@@ -179,11 +190,12 @@ ul {
 
 .solid {
   display: none;
+  align-self: center;
 }
 
 .solid:hover {
   transition: unset;
-  filter: brightness(95%);
+  filter: brightness(85%);
   color: white;
 }
 
@@ -204,7 +216,7 @@ ul {
 }
 
 .add-item {
-  width: 100%;
+  width: 95%;
   min-height: 100px;
   height: auto;
   background-color: white;
@@ -219,6 +231,12 @@ ul {
   outline: none;
 }
 
+.display-block {
+  display: block;
+}
+
+
+
 /* Media Query: Laptop */
 @media screen and (max-width: 1800px) {
   .main-title {
@@ -227,7 +245,7 @@ ul {
 }
 
 /* Media Query: Large Smartphone (Vertical) */
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 768px) {
   body {
     overflow-y: auto;
   }
