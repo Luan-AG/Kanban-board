@@ -151,7 +151,6 @@ deleteEvents();
 
 
 
-
 // Update Item - Delete if necessary, or update Array value
 function updateItem(id, column) {
   const selectedArray = listArrays[column];
@@ -191,10 +190,18 @@ function hideInputBox(column) {
   closeBtns[column].style.display = 'none'
   addToColumn(column);
 }
+function hideInputBoxEnter(event, column) {
+  if (event.key === 'Enter') {
+    addBtns[column].style.display = 'flex';
+    saveItemBtns[column].style.display = 'none';
+    addItemContainers[column].style.display = 'none';
+    closeBtns[column].style.display = 'none'
+    addToColumn(column);
+  }
+}
 
 // Hide Item Input Box When click close
 function closeInputBox(column) {
-  
   saveItemBtns[column].style.display = 'none';
   addItemContainers[column].style.display = 'none';
   closeBtns[column].style.display = 'none'
