@@ -111,7 +111,41 @@ function updateDOM() {
   updateSavedColumns();
 }
 
-
+function deleteEvents() {
+  backlogUL.addEventListener('click', function(e) {
+    if(e.target.parentElement.classList.contains("drag-item")) {
+      const id = e.target.parentElement.id;
+      delete backlogListArray[id];
+      console.log(id);
+      updateDOM();
+    } 
+  })
+  progressUL.addEventListener('click', function(e) {
+    if(e.target.parentElement.classList.contains("drag-item")) {
+      const id = e.target.parentElement.id;
+      delete progressListArray[id];
+      console.log(id);
+      updateDOM();
+    } 
+  })
+  testingUL.addEventListener('click', function(e) {
+    if(e.target.parentElement.classList.contains("drag-item")) {
+      const id = e.target.parentElement.id;
+      delete testingListArray[id];
+      console.log(id);
+      updateDOM();
+    } 
+  })
+  completeUL.addEventListener('click', function(e) {
+    if(e.target.parentElement.classList.contains("drag-item")) {
+      const id = e.target.parentElement.id;
+      delete completeListArray[id];
+      console.log(id);
+      updateDOM();
+    } 
+  })
+}
+deleteEvents();
 
 
 // Update Item - Delete if necessary, or update Array value
