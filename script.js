@@ -35,9 +35,9 @@ function getSavedColumns() {
     completeListArray = JSON.parse(localStorage.onHoldItems);
   } else { // else use this template arrays
     backlogListArray = ['Task One', 'Task Three'];
-    progressListArray = ['Task Two', 'Task Four'];
+    progressListArray = ['Task Two'];
     testingListArray = ['Task Six', 'Task Seven'];
-    completeListArray = ['Task Five'];
+    completeListArray = ['Task Five', 'Task Four'];
   }
 }
 
@@ -190,7 +190,7 @@ function hideInputBox(column) {
     setTimeout(function() {
       addItems[column].parentElement.style.border = 'none';
       document.querySelector(`.msg${column}`).style.display = 'none';
-    }, 3000);
+    }, 2000);
   } else {
     addBtns[column].style.display = 'flex';
     saveItemBtns[column].style.display = 'none';
@@ -198,18 +198,25 @@ function hideInputBox(column) {
     closeBtns[column].style.display = 'none'
     addToColumn(column);
   }
-
-  
 }
 
 // Hide Item Input Box When pressed Enter
 function hideInputBoxEnter(event, column) {
   if (event.key === 'Enter') {
-    addBtns[column].style.display = 'flex';
-    saveItemBtns[column].style.display = 'none';
-    addItemContainers[column].style.display = 'none';
-    closeBtns[column].style.display = 'none'
-    addToColumn(column);
+    if(addItems[column].textContent === ''){
+      addItems[column].parentElement.style.border = '2px solid red';
+      document.querySelector(`.msg${column}`).style.display = 'block';
+      setTimeout(function() {
+        addItems[column].parentElement.style.border = 'none';
+        document.querySelector(`.msg${column}`).style.display = 'none';
+      }, 2000);
+    } else {
+        addBtns[column].style.display = 'flex';
+        saveItemBtns[column].style.display = 'none';
+        addItemContainers[column].style.display = 'none';
+        closeBtns[column].style.display = 'none'
+        addToColumn(column);
+    }
   }
 }
 
