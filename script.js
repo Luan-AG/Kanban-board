@@ -184,12 +184,25 @@ function showInputBox(column) {
 
 // Hide Item Input Box When click Save
 function hideInputBox(column) {
-  addBtns[column].style.display = 'flex';
-  saveItemBtns[column].style.display = 'none';
-  addItemContainers[column].style.display = 'none';
-  closeBtns[column].style.display = 'none'
-  addToColumn(column);
+  if(addItems[column].textContent === ''){
+    addItems[column].parentElement.style.border = '2px solid red';
+    document.querySelector(`.msg${column}`).style.display = 'block';
+    setTimeout(function() {
+      addItems[column].parentElement.style.border = 'none';
+      document.querySelector(`.msg${column}`).style.display = 'none';
+    }, 3000);
+  } else {
+    addBtns[column].style.display = 'flex';
+    saveItemBtns[column].style.display = 'none';
+    addItemContainers[column].style.display = 'none';
+    closeBtns[column].style.display = 'none'
+    addToColumn(column);
+  }
+
+  
 }
+
+// Hide Item Input Box When pressed Enter
 function hideInputBoxEnter(event, column) {
   if (event.key === 'Enter') {
     addBtns[column].style.display = 'flex';

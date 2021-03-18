@@ -235,6 +235,15 @@ ul {
   display: block;
 }
 
+.msg1, .msg2, .msg3, .msg0 {
+  font-size: .7rem;
+  color: #fc0000;
+  background-color: white;
+  margin: 0 10% 8px 10%;
+  border-radius: 5px;
+  text-align: center;
+  display: none;
+}
 
 
 /* Media Query: Laptop */
