@@ -2,12 +2,14 @@ const addBtns = document.querySelectorAll('.add-btn:not(.solid)'); //Array with 
 const saveItemBtns = document.querySelectorAll('.solid'); //Array with all the 'save item' buttons
 const addItemContainers = document.querySelectorAll('.add-container'); // Array with all the hidden 'add container'
 const addItems = document.querySelectorAll('.add-item'); // Array with all the <div> elements inside the 'add container'
+const closeBtns = document.querySelectorAll('.btn-close');// Array with all the <div .btn-close>
 
 const listColumns = document.querySelectorAll('.drag-item-list'); //Array with all the <ul> below together.
 const backlogUL = document.getElementById('backlog-list');  //Backlog <ul> element
 const progressUL = document.getElementById('progress-list'); //Progress <ul> element
 const testingUL = document.getElementById('complete-list'); //Testing <ul> element
 const completeUL = document.getElementById('on-hold-list'); //Complete <ul> element
+
 
 // Items
 let updatedOnLoad = false; //False means that when we load the page the content from LS was not yet downloaded, when it turns true it means it was loaded and we don't run it again.
@@ -173,16 +175,18 @@ function addToColumn(column) {
 
 // Show Add Item Input Box
 function showInputBox(column) {
-  addBtns[column].style.visibility = 'hidden';
+  addBtns[column].style.display = 'none';
   saveItemBtns[column].style.display = 'flex';
   addItemContainers[column].style.display = 'flex';
+  closeBtns[column].style.display = 'flex'
 }
 
 // Hide Item Input Box
 function hideInputBox(column) {
-  addBtns[column].style.visibility = 'visible';
+  addBtns[column].style.display = 'flex';
   saveItemBtns[column].style.display = 'none';
   addItemContainers[column].style.display = 'none';
+  closeBtns[column].style.display = 'none'
   addToColumn(column);
 }
 

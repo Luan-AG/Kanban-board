@@ -137,8 +137,9 @@ ul {
 .bin-icon, .edit-icon {
   height: 15px;
   margin-left: 10px;
-  justify-self: center;
+  justify-self: flex-end;
   cursor: pointer;
+  
 }
 
 .drag-item:focus {
@@ -163,11 +164,22 @@ ul {
   cursor: pointer;
   width: fit-content;
   border-radius: 5px;
-  transition: all 0.2s ease-in;
   user-select: none;
 }
 
-.add-btn:hover {
+.btn-close {
+  margin: 10px;
+  padding: 5px 10px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  width: fit-content;
+  border-radius: 5px;
+  user-select: none;
+  display: none;
+}
+
+.add-btn:hover, .btn-close:hover {
   background-color: rgba(255, 255, 255, 0.9);
   color: black;
 }
